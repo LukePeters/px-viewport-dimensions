@@ -1,0 +1,29 @@
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  line-height: 1.2em;
+  color: #181818;
+}
+
+.popup-content {
+  padding: 0;
+  width: 94px;
+}
+
+.settings-checkbox input {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  z-index: 2;
+}
+
+.settings-checkbox label {
+  padding: 11px 9px 10px 33px;
+  display: block;
+}

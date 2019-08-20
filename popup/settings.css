@@ -13,7 +13,25 @@ body {
 
 .popup-content {
   padding: 0;
-  width: 94px;
+  width: 130px;
+}
+
+h3 {
+  margin: 0 0 4px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  line-height: 1.2em;
+  font-weight: normal;
+  color: #181818;
+}
+
+.settings-section {
+  padding: 11px 14px 10px;
+}
+
+.settings-checkbox {
+  border-radius: 0 0 4px 4px;
+  background: #f6f6f6;
 }
 
 .settings-checkbox input {
@@ -26,4 +44,12 @@ body {
 .settings-checkbox label {
   padding: 11px 9px 10px 33px;
   display: block;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #dddddd;
+}
+
+select {
+  width: 100%;
 }

@@ -1,16 +1,40 @@
 var span = document.createElement("span"),
     text = document.createTextNode(""),
     hideViewportSizeTimeout,
+    defaultPosition = "tr",
+    hideDelay = 2500,
     pluginDisabled = false;
 
 // Get from persistent storage whether or not the user has disabled the plugin
 browser.storage.local.get().then(function(state) {
   pluginDisabled = state.disabled;
+  
+  if(state.position) {
+    span.classList.add(state.position);
+  } else {
+    span.classList.add(defaultPosition);
+  }
+
+  if(state.hideDelay) {
+    hideDelay = state.hideDelay;
+  }
 });
 
 // Listen for a change in the stored settings data
 browser.storage.onChanged.addListener(function(data) {
-  pluginDisabled = data.disabled.newValue;
+  
+  if(data.disabled) {
+    pluginDisabled = data.disabled.newValue;
+  }
+  
+  if(data.position) {
+    span.classList.remove(data.position.oldValue);
+    span.classList.add(data.position.newValue);
+  }
+
+  if(data.hideDelay) {
+    hideDelay = data.hideDelay.newValue;
+  }
 });
 
 span.classList.add("px-viewport-dimensions");
@@ -37,7 +61,7 @@ function showViewportSize() {
   }
 
   clearTimeout(hideViewportSizeTimeout);
-  hideViewportSizeTimeout = setTimeout(hideViewportSize, 2500);
+  hideViewportSizeTimeout = setTimeout(hideViewportSize, hideDelay);
 }
 
 function hideViewportSize() {

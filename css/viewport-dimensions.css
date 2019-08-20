@@ -1,7 +1,5 @@
 .px-viewport-dimensions {
   position: fixed;
-  top: 10px;
-  right: 10px;
   z-index: 10000;
   padding: 5px 6px 5px;
   font-family: 'Courier', 'Courier New', 'Helvetica', sans-serif;
@@ -10,17 +8,43 @@
   word-spacing: -2px;
   color: #ffffff;
   opacity: 0;
-  transform: translate3d(calc(100% + 8px), 0, 0);
   display: inline-block;
   background: #181818;
   transition: opacity .4s ease, transform .4s ease;
+}
+
+.px-viewport-dimensions.tl {
+  top: 10px;
+  left: 10px;
+  transform: translate3d(calc(-100% + 8px), 0, 0);
+}
+
+.px-viewport-dimensions.tr {
+  top: 10px;
+  right: 10px;
+  transform: translate3d(calc(100% + 8px), 0, 0);
+}
+
+.px-viewport-dimensions.br {
+  right: 10px;
+  bottom: 10px;
+  transform: translate3d(calc(100% + 8px), 0, 0);
+}
+
+.px-viewport-dimensions.bl {
+  left: 10px;
+  bottom: 10px;
+  transform: translate3d(calc(-100% + 8px), 0, 0);
 }
 
 .px-viewport-dimensions--hidden {
   display: none;
 }
 
-.px-viewport-dimensions--fade-in {
+.px-viewport-dimensions--fade-in.tl,
+.px-viewport-dimensions--fade-in.tr,
+.px-viewport-dimensions--fade-in.br,
+.px-viewport-dimensions--fade-in.bl {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }

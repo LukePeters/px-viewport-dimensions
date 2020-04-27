@@ -10,7 +10,7 @@ browser.storage.local.get().then(function(state) {
     positionSelect.value = state.position;
   }
 
-  if(state.hideDelay) {
+  if(typeof(state["hideDelay"]) !== "undefined") {
     hideDelay.value = state.hideDelay;
   }
 });

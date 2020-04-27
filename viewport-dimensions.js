@@ -15,8 +15,12 @@ browser.storage.local.get().then(function(state) {
     span.classList.add(defaultPosition);
   }
 
-  if(state.hideDelay) {
+  if(typeof(state["hideDelay"]) !== "undefined") {
     hideDelay = state.hideDelay;
+    
+    if(hideDelay === 0 && !pluginDisabled) {
+      showViewportSize();
+    }
   }
 });
 
@@ -25,6 +29,12 @@ browser.storage.onChanged.addListener(function(data) {
   
   if(data.disabled) {
     pluginDisabled = data.disabled.newValue;
+    
+    if(pluginDisabled) {
+      hideViewportSize();
+    } else if(!pluginDisabled && hideDelay === 0) {
+      showViewportSize();
+    }
   }
   
   if(data.position) {
@@ -32,8 +42,14 @@ browser.storage.onChanged.addListener(function(data) {
     span.classList.add(data.position.newValue);
   }
 
-  if(data.hideDelay) {
+  if(typeof(data["hideDelay"]) !== "undefined") {
     hideDelay = data.hideDelay.newValue;
+
+    if(hideDelay === 0 && !pluginDisabled) {
+      showViewportSize();
+    } else {
+      hideViewportSize();
+    }
   }
 });
 
@@ -54,14 +70,16 @@ function showViewportSize() {
   
   if(span.classList.contains("px-viewport-dimensions--hidden")) {
     span.classList.remove("px-viewport-dimensions--hidden");
-
+    
     setTimeout(function() {
       span.classList.add("px-viewport-dimensions--fade-in");
-    }, 1);
+    }, 100);
   }
-
-  clearTimeout(hideViewportSizeTimeout);
-  hideViewportSizeTimeout = setTimeout(hideViewportSize, hideDelay);
+  
+  if(hideDelay > 0) {
+    clearTimeout(hideViewportSizeTimeout);
+    hideViewportSizeTimeout = setTimeout(hideViewportSize, hideDelay);
+  }
 }
 
 function hideViewportSize() {

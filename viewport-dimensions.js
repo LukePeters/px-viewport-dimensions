@@ -91,8 +91,8 @@ function hideViewportSize() {
   }, 400);
 }
 
-window.onresize = function() {
+window.addEventListener("resize", function() {
   if(!pluginDisabled) {
     showViewportSize();
   }
-}
+});

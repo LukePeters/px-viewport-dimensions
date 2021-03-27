@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "PX: Viewport Dimensions",
-  "version": "1.7",
+  "version": "1.8",
   "description": "Displays the viewport dimensions when a browser window is resized.",
   "applications": {
     "gecko": {

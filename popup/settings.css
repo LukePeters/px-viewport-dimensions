@@ -5,15 +5,22 @@
 
 body {
   margin: 0;
+  width: 190px;
   font-family: 'Helvetica', sans-serif;
   font-size: 14px;
   line-height: 1.2em;
   color: #181818;
 }
 
+@media screen and (min-width: 376px) {
+  body {
+    width: 376px;
+  }
+}
+
 .popup-content {
   padding: 0;
-  width: 130px;
+  min-height: calc(100% - 38px);
 }
 
 h3 {
@@ -30,7 +37,6 @@ h3 {
 }
 
 .settings-checkbox {
-  border-radius: 0 0 4px 4px;
   background: #f6f6f6;
 }
 
@@ -52,4 +58,31 @@ h3 {
 
 select {
   width: 100%;
+}
+
+/* Sponsored By */
+a#section--sponsored-by {
+  margin-bottom: -1px;
+  padding: 12px 10px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #cccccc;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-image: linear-gradient(to bottom, #303030, #404040);
+}
+
+a#section--sponsored-by img {
+  top: -2px;
+  margin-left: 8px;
+}
+
+a#section--sponsored-by:hover {
+  color: #eeeeee;
 }

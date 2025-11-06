@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="settings.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="settings.css" />
-</head>
+  <body>
+    <div class="popup-content">
+      <div class="settings-section border-bottom">
+        <h3>Position</h3>
 
-<body>
-  
-  <div class="popup-content">
+        <select name="position" id="position">
+          <option value="tl">Top Left</option>
+          <option value="tr">Top Right</option>
+          <option value="br">Bottom Right</option>
+          <option value="bl">Bottom Left</option>
+        </select>
+      </div>
 
-    <div class="settings-section border-bottom">
-
-      <h3>Position</h3>
-
-      <select name="position" id="position">
-        <option value="tl">Top Left</option>
-        <option value="tr">Top Right</option>
-        <option value="br">Bottom Right</option>
-        <option value="bl">Bottom Left</option>
-      </select>
-
-    </div>
-
-    <div class="settings-section border-bottom">
-
+      <div class="settings-section border-bottom">
         <h3>Hide Delay</h3>
 
         <select name="hideDelay" id="hideDelay">
@@ -41,23 +35,14 @@
           <option value="10000">10 seconds</option>
           <option value="0">Never Hide</option>
         </select>
-  
       </div>
 
-    <div class="settings-checkbox">
-      <input type="checkbox" id="disabled">
-      <label for="disabled">Disable</label>
+      <div class="settings-checkbox">
+        <input type="checkbox" id="disabled" />
+        <label for="disabled">Disable</label>
+      </div>
     </div>
-    
-  </div>
 
-  <a href="https://screenlapse.com?rf=px" id="section--sponsored-by" class="popup-content__section">
-    <span>Brought to you by</span>
-    <img src="screenlapse-icon.svg" alt="Screenlapse.com" />
-  </a>
-  
-  <script src="settings.js"></script>
-  
-</body>
-
+    <script src="settings.js"></script>
+  </body>
 </html>

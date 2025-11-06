@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "PX: Viewport Dimensions",
-  "version": "1.9",
+  "version": "2.0",
   "description": "Displays the viewport dimensions when a browser window is resized.",
   "applications": {
     "gecko": {
@@ -15,9 +15,7 @@
     "96": "icons/px-96.png",
     "128": "icons/px-128.png"
   },
-  "permissions": [
-    "storage"
-  ],
+  "permissions": ["storage"],
   "browser_action": {
     "default_icon": "icons/px-32.png",
     "default_title": "Viewport Dimensions",
